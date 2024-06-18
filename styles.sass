@@ -1,0 +1,42 @@
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+/* Comentario */
+// Esto tambien es un comentario
+
+// LAS VARIABLES EN SASS (espacio en memoria)
+
+$colorPrincipal : blue 
+$tamanoPrincipal : 500px
+$fuentePrincipal : 50px
+$fuenteFamilia : 'sanserif'
+
+// ANIDAMIENTO (Seleccion de la estructura de los hijos de un elemento)
+
+main
+    width: $tamanoPrincipal
+    height: $tamanoPrincipal
+    background-color: $colorPrincipal
+    color: white
+    &:hover
+        background-color: red
+    h1
+        font-size: $fuentePrincipal
+    p
+        color: purple
+
+// LOS MIXIN (Con y sin parametros) : Son fragmentos de codigo que se pueden reutilizar
+
+@mixin my-mixin($color, $border)
+    padding: 10px 15px
+    border: $border
+    border-radius: 20px
+    background-color: $color
+
+.aceptar
+    @include my-mixin(green, none)
+    
+.eliminar
+    @include my-mixin(red, none)
