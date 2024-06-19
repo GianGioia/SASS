@@ -40,3 +40,42 @@ main
     
 .eliminar
     @include my-mixin(red, none)
+
+@mixin flexbox($direction:row, $justify:center, $align:center)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
+
+.section
+    height: 400px
+    background-color: purple
+    //@include flexbox()
+    @include flexbox(column, start, end)
+    //@include flexbox($align:end)
+
+// BEM (BLOCK, ELEMENT, MODIFIER)
+// SASS permite el operador & para poder abreviar al hacer referencia al selector padre
+// El metodo bem es una convencion de nomenclatura de calses de CSS
+// Divide las clases en tres partes: Bloque (Componente principal)
+// Elemento (parte dentro del bloque) y Modificador (Variante del bloque o elemento)
+
+.header
+    background-color: gray
+    &__titulo
+        font-size: 50px
+        color: white
+    &__boton
+        padding: 10px 20px
+        color: white
+        border: none
+        &--red
+            background-color: red
+        &--verde
+            background-color: green
+
+// @extend ---> Nos pwemite reutilizar estilos de otros selectores 
+
+.boton_secundario
+    background-color: blue
+    @extend .header__boton

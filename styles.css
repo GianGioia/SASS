@@ -35,4 +35,36 @@ main p {
   background-color: red;
 }
 
+.section {
+  height: 400px;
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
+}
+
+.header {
+  background-color: gray;
+}
+.header__titulo {
+  font-size: 50px;
+  color: white;
+}
+.header__boton, .boton_secundario {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+}
+.header__boton--red {
+  background-color: red;
+}
+.header__boton--verde {
+  background-color: green;
+}
+
+.boton_secundario {
+  background-color: blue;
+}
+
 /*# sourceMappingURL=styles.css.map */
