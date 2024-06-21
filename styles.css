@@ -67,4 +67,90 @@ main p {
   background-color: blue;
 }
 
+h4 {
+  background-color: blue;
+}
+
+.boton-inicio {
+  color: blue;
+  padding: 20px 30px;
+}
+
+.boton-final {
+  color: purple;
+  padding: 3px 7px;
+}
+
+.division-1 {
+  width: 100px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: red;
+}
+
+.division-2 {
+  width: 100px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: red;
+  background-color: blue;
+}
+
+.division-3 {
+  width: 100px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: red;
+  background-color: yellow;
+}
+
+.division-4 {
+  width: 100px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: red;
+}
+
+.division-5 {
+  width: 100px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: red;
+}
+
+.bg-red {
+  width: 100px;
+  height: 300px;
+  background-color: red;
+}
+
+.bg-green {
+  width: 100px;
+  height: 300px;
+  background-color: green;
+}
+
+.bg-blue {
+  width: 100px;
+  height: 300px;
+  background-color: blue;
+}
+
+.primario {
+  background-color: blue;
+}
+
+.secundario {
+  background-color: green;
+}
+
+.resaltado {
+  background-color: yellow;
+}
+
+.contenedor {
+  height: 100vh;
+  background: linear-gradient(to right, green, red);
+}
+
 /*# sourceMappingURL=styles.css.map */

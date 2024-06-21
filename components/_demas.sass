@@ -1,0 +1,143 @@
+/* Comentario */
+// Esto tambien es un comentario
+
+
+
+// ANIDAMIENTO (Seleccion de la estructura de los hijos de un elemento)
+
+main
+    width: $tamanoPrincipal
+    height: $tamanoPrincipal
+    background-color: $colorPrincipal
+    color: white
+    &:hover
+        background-color: red
+    h1
+        font-size: $fuentePrincipal
+    p
+        color: purple
+
+
+
+.aceptar
+    @include my-mixin(green, none)
+    
+.eliminar
+    @include my-mixin(red, none)
+
+
+.section
+    height: 400px
+    background-color: purple
+    //@include flexbox()
+    @include flexbox(column, start, end)
+    //@include flexbox($align:end)
+
+// BEM (BLOCK, ELEMENT, MODIFIER)
+// SASS permite el operador & para poder abreviar al hacer referencia al selector padre
+// El metodo bem es una convencion de nomenclatura de calses de CSS
+// Divide las clases en tres partes: Bloque (Componente principal)
+// Elemento (parte dentro del bloque) y Modificador (Variante del bloque o elemento)
+
+.header
+    background-color: gray
+    &__titulo
+        font-size: 50px
+        color: white
+    &__boton
+        padding: 10px 20px
+        color: white
+        border: none
+        &--red
+            background-color: red
+        &--verde
+            background-color: green
+
+// @extend ---> Nos pwemite reutilizar estilos de otros selectores 
+
+.boton_secundario
+    background-color: blue
+    @extend .header__boton
+
+// CONDICIONALES  @if (Si se cumple la condicion) @else (Si en el if no se cumple la condicion)
+// @else if (Otra condicion)
+
+// OPERADORES:
+
+// == (Igualdad) por ej : 1 == 1
+// != (Desigualdad) por ej : 2 != 3
+// > (Mayor que) por ej : 3 > 5
+// < (Menor que) por ej : 10 < 20
+// >= (Mayor o igual que) por ej : 5 >= 5
+// <= (Menor que o igual que) por ej : 9 <= 5
+
+$numero : 10
+$propiedad : 'background-color'
+
+h4
+    @if 2 == 2
+        #{$propiedad} : blue
+    @else if 3 != 3
+        background-color: yellow
+    @else if $numero >= 10 
+        background-color: orange
+    @else 
+        background-color: purple
+
+// INTERPOLAR #{$variable}
+
+@mixin boton($nombre, $propiedad1, $valor1, $propiedad2, $valor2)
+    .boton-#{$nombre} // .boton-inicio
+        @if $propiedad1 == color
+            #{$propiedad1} : $valor1 // color : purple
+        @else
+            color: blue
+        @if $propiedad2 == padding
+            #{$propiedad2} : $valor2 // padding : 3px 7px
+        @else 
+            padding: 20px 30px
+
+@include boton('inicio', background-color, red, margin, 10px 25px)
+@include boton('final', color, purple, padding, 3px 7px )
+
+// BUCLES
+
+// FOR --------> 1 - 10 | 1 - 20 | 0 - 2 | 5 - 10
+
+@for $contador from 1 through 5
+    .division-#{$contador} // .division-1 .division-2
+        width: 100px
+        height: 200px
+        margin-bottom: 10px
+        background-color: red
+        @if $contador == 3
+            background-color: yellow
+        @if $contador == 2
+            background-color: blue
+
+// @each ---------> Nos permite recorrer una lista/objeto (map)
+
+$colors : red, green, blue
+
+@each $color in $colors
+    .bg-#{$color} // .bg-red
+        width: 100px
+        height: 300px
+        background-color: $color
+
+// Mapas (Objeto)
+
+$temas : (primario : blue, secundario : green, resaltado : yellow)
+
+@each $nombre, $color in $temas
+    .#{$nombre} // .primario .secundario .resaltado
+        background-color: $color
+
+// FUNCIONES EN SASS --------> ES UNA CAJITA DE HERRAMIENTAS QUE NOS RETORNA UN VALOR 
+
+@function degradado($color1: black, $color2: black, $direccion: to left)
+    @return linear-gradient($direccion, $color1, $color2)
+
+.contenedor
+    height: 100vh
+    background: degradado(green, red, to right)

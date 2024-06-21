@@ -1,81 +1,8 @@
-*
-    padding: 0
-    margin: 0
-    box-sizing: border-box
-
-/* Comentario */
-// Esto tambien es un comentario
-
-// LAS VARIABLES EN SASS (espacio en memoria)
-
-$colorPrincipal : blue 
-$tamanoPrincipal : 500px
-$fuentePrincipal : 50px
-$fuenteFamilia : 'sanserif'
-
-// ANIDAMIENTO (Seleccion de la estructura de los hijos de un elemento)
-
-main
-    width: $tamanoPrincipal
-    height: $tamanoPrincipal
-    background-color: $colorPrincipal
-    color: white
-    &:hover
-        background-color: red
-    h1
-        font-size: $fuentePrincipal
-    p
-        color: purple
-
-// LOS MIXIN (Con y sin parametros) : Son fragmentos de codigo que se pueden reutilizar
-
-@mixin my-mixin($color, $border)
-    padding: 10px 15px
-    border: $border
-    border-radius: 20px
-    background-color: $color
-
-.aceptar
-    @include my-mixin(green, none)
-    
-.eliminar
-    @include my-mixin(red, none)
-
-@mixin flexbox($direction:row, $justify:center, $align:center)
-    display: flex
-    flex-direction: $direction
-    justify-content: $justify
-    align-items: $align
-
-.section
-    height: 400px
-    background-color: purple
-    //@include flexbox()
-    @include flexbox(column, start, end)
-    //@include flexbox($align:end)
-
-// BEM (BLOCK, ELEMENT, MODIFIER)
-// SASS permite el operador & para poder abreviar al hacer referencia al selector padre
-// El metodo bem es una convencion de nomenclatura de calses de CSS
-// Divide las clases en tres partes: Bloque (Componente principal)
-// Elemento (parte dentro del bloque) y Modificador (Variante del bloque o elemento)
-
-.header
-    background-color: gray
-    &__titulo
-        font-size: 50px
-        color: white
-    &__boton
-        padding: 10px 20px
-        color: white
-        border: none
-        &--red
-            background-color: red
-        &--verde
-            background-color: green
-
-// @extend ---> Nos pwemite reutilizar estilos de otros selectores 
-
-.boton_secundario
-    background-color: blue
-    @extend .header__boton
+// MI COMPONENTE DE ESTIOS GENERALES
+@import "components/_general"
+// ---------------------------
+@import "components/_variables"
+// ---------------------------
+@import "components/_mixins"
+// ---------------------------
+@import "components/_demas"

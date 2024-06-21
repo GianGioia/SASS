@@ -1,0 +1,13 @@
+// LOS MIXIN (Con y sin parametros) : Son fragmentos de codigo que se pueden reutilizar
+
+@mixin my-mixin($color, $border)
+    padding: 10px 15px
+    border: $border
+    border-radius: 20px
+    background-color: $color
+
+@mixin flexbox($direction:row, $justify:center, $align:center)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
